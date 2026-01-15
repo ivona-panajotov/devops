@@ -13,6 +13,10 @@ app.get('/health',(req,res)=>{
     res.send("Ok")
 })
 
+app.get('/Test',(req,res)=>{
+    res.send("Test")
+})
+
 app.listen(PORT,HOST,()=>{
     console.log(`Port at ${PORT}`)
 })
