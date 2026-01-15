@@ -1,7 +1,6 @@
 FROM node:iron-slim
 
-WORKDIR /Docker
-
+WORKDIR /app
 COPY package*.json ./
 
 RUN npm i
