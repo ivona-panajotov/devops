@@ -36,3 +36,14 @@ jobs:
       - name: Push Docker image to ECR
         run: |
           docker push 807497180003.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/devops:latest
+      
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/devops-compose
+            docker compose pull
+            docker compose up -d
