@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:iron-slim
 
 WORKDIR /Docker
 
@@ -6,6 +6,6 @@ COPY package*.json ./
 
 RUN npm i
 
-COPY /app .
+COPY . .
 
 CMD ["npm","start"]
